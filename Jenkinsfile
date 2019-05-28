@@ -8,7 +8,7 @@ pipeline {
     }
     stage('test') {
       steps {
-        withSonarQubeEnv(installationName: 'scanner', credentialsId: 'sonarquebe') {
+        withSonarQubeEnv(installationName: 'sonarquebe', credentialsId: 'sonarquebe') {
           waitForQualityGate(abortPipeline: true, credentialsId: 'sonarquebe')
         }
 
