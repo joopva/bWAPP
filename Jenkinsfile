@@ -3,8 +3,7 @@ pipeline {
   stages {
     stage('prepare') {
       steps {
-        sh 'echo "hello world"'
-        git(url: 'https://github.com/joopva/bWAPP.git', branch: 'mastr', credentialsId: 'github_usr')
+        git(url: 'https://github.com/joopva/bWAPP.git', branch: 'master', credentialsId: 'github_usr')
       }
     }
     stage('test') {
