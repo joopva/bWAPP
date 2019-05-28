@@ -8,12 +8,10 @@ pipeline {
     }
     stage('test') {
       steps {
-        withSonarQubeEnv(installationName: 'sonarqube', credentialsId: 'sonarquebe')
-      }
-    }
-    stage('scan') {
-      steps {
-        waitForQualityGate(credentialsId: 'sonarquebe', abortPipeline: true)
+        withSonarQubeEnv(installationName: 'sonarqube', credentialsId: 'sonarquebe') {
+          waitForQualityGate(abortPipeline: true, credentialsId: 'sonarquebe')
+        }
+
       }
     }
   }
