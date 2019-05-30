@@ -10,7 +10,7 @@ pipeline {
       steps {
         sh '''def scannerHome=tool(name: \'scanner\', type: \'hudson.plugins.sonar.SonarRunnerInstallation\')
        
-withSonarQubeEnv(installationName: \'scanner\', credentialsId: \'sonarquebe\') {
+withSonarQubeEnv(installationName: \'sonarqube\', credentialsId: \'sonarquebe\') {
             sh \'${scannerHome}/bin/sonar-scanner -Dsonar.projectkey=123 -Dsonar.projectname=123 -Dsonar.source=.\'
         }'''
       }
